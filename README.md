@@ -73,3 +73,13 @@ Please add this code in your main method once you are finished writing all your 
 * Follow DRY principles **(DO NOT REPEAT YOURSELF)** as much as possible. Call your methods when necessary
 * All your methods should be private static
 * When you declare any variable in class level(outside your method) and want to use it inside a static method, this varibale has to be also static
+
+***
+
+
+### Bonus
+Call the **MultiLineAnimation()** method provided in the started code in your main method.
+
+
+
+**_Thanks, Happy Coding!!!_**
