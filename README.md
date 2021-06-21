@@ -72,6 +72,8 @@ Please add this code in your main method once you are finished writing all your 
 
 ```
 
+***
+
 ### <ins>Important points:</ins>
 * Follow DRY principles **(DO NOT REPEAT YOURSELF)** as much as possible. Call your methods when necessary
 * All your methods should be private static
