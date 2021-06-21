@@ -60,12 +60,7 @@ Please add this code in your main method once you are finished writing all your 
         {
             Console.WriteLine("Welcome to the Party!!");
             GetUserInfo();
-            
-          //  Thread.Sleep(2300);
-
-          MultiLineAnimation();
-          PrintGuestsName();
-            
+            PrintGuestsName();
             PrintWinner();
             
         }
