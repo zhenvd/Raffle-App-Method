@@ -36,6 +36,9 @@ _**You will need to create 7 methods for this assignment**_
 3. Create a method that return an integer and name it **GenerateRandomNumber().**
     * This method should take **_2 parameters int min, and int max_**, This method should return an integer number between min and max.
 
+
+***
+
 4. Create a method that returns nothing and name it **AddGuestsInRaffle().** This method should take **2 parameters int raffleNumber and string guest**
     * Add the raffleNumber and the guest name that you collect from the user and store them in the guests dictionary that you created.
 
