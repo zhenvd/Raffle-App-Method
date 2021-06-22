@@ -27,7 +27,7 @@ _**You will need to create 7 methods for this assignment**_
   
 2. Create a method that returns nothing and name it **GetUserInfo().**
    1. Inside your method use a loop to ask the user to enter the name of the guest. You should be able to call the method **GetUserInput** and store it in string variable called **name.** Ex: ``` string name = GetUserInput"What is you name") ```
-   2. The loop will end when the user type "yes". use a separate variable to store the input ex: ```Console.WriteLine("Do you want to add another name? ) moreGuest = Console.Readline()```
+   2. The loop will end when the user type "yes". use a separate variable to store the input ex: ``` moreGuest = GetUserInput("Do you want to add another name? ")``` Remember due to scope with loop you need to declare the variable outside the loop in the method level.
    3. create a 4 digits random number by calling the **GenerateRandomNumber()**(see description for this method below) and store it in the **raffleNumber** variable that you created.
    4. **Validate your input.** Keep asking for the guest's name if user enter an empty string
    5. Same thing for your random number, validate the data. You can't have the same raffleNumber. You can use a loop to keep calling **GenerateRandomNumber()** method.
