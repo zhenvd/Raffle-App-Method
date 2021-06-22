@@ -43,8 +43,8 @@ _**You will need to create 7 methods for this assignment**_
     * instead of using Console.WriteLine and Console.ReadLine all the time just call this method and pass the string message as an argument. This method should return the data you collect from the user, just like console.Readline return a string as output.
   
 2. Create a method that returns nothing and name it **GetUserInfo().**
-   1. Inside your method use a loop to ask the user to enter the name of the guest. You should call the method **GetUserInput** to do that and store it in the name variable that you created
-   2. The loop will end when the user type "yes". use a separate variable to store the input ex: ```Console.WriteLine("Do you want to add another name? ) moreGuest = Console.Readline()```
+   1. Inside your method use a loop to ask the user to enter the name of the guest. You should call the method **GetUserInput** and store it in a variable call **name ex: ``` string name = GetUserInput("Please enter your name "); ```
+   2. The loop will end when the user type "yes". use a separate variable to store the input ex: ```otherGuest = GetUserInput("Do you want to add another name? ").ToLower(); ``` Remember that you have to declare this variable outside of the loop and inside the body of your function so you can use it in the while condition ex: ```do{//....}while(otherGuest == 'yes'); ```
    3. create a 4 digits random number by calling the **GenerateRandomNumber()**(see description for this method below) and store it in the **raffleNumber** variable that you created.
    4. **Validate your input.** Keep asking for the guest's name if user enter an empty string
    5. Same thing for your random number, validate the data. You can't have the same raffleNumber. You can use a loop to keep calling **GenerateRandomNumber()** method.
