@@ -7,6 +7,23 @@ You are hosting a party and want to give a lucky guest a prize before the party 
 ***
 1. Fork this repo
 1. Clone it on you local machine in the folder you want it.
+2. Once you finish with your assignment, push it to GitHub and submit the link in Canvas, so your TA can have it.
+
+***
+4. This will be a great time to continue using git/GitHub. You will work on 7 methods for this exercise. You can create branches as you code along and name them after your method:  _**This is an example: (This is optional)**_
+
+     
+    * ``` git checkout -b getUserInput-method ```. This will create the branch **getUserInput-method.**
+    * ``` git merge main ``` Before working in a new branch always merge master to make sure that you are not missing any changes in master. You work on your branch, write your code, and once you are done:
+    * ``` git status ``` check the status of the branch that you are currently working.
+    * ``` git add -A ``` add the change in your staging area.
+    * ``` git commit -m "finished working with GetUserInput-method" ``` commit your work in your local repo.
+    * ``` git checkout main ``` switch back to main.
+    * ``` git merge GetUserInput-method ``` merge everything you work  in GetUserInput-method to master.
+    * ``` git push -u origin GetUserInput-method ``` push the branch to your remote repo
+    * Although it is not recommended to do your own pull request since you are working solo, you can go ahead and do it. Do pull request on GitHub and merge the changes in the main branch.
+    * Now go back to the terminal and switch to main ``` git checkout main ``` then do a pull ``` git pull ``` to get all the changes from GitHub
+    * Repeat the process by changing just the name of your branch
 ***
 
 ### Variables
@@ -26,8 +43,8 @@ _**You will need to create 7 methods for this assignment**_
     * instead of using Console.WriteLine and Console.ReadLine all the time just call this method and pass the string message as an argument. This method should return the data you collect from the user, just like console.Readline return a string as output.
   
 2. Create a method that returns nothing and name it **GetUserInfo().**
-   1. Inside your method use a loop to ask the user to enter the name of the guest. You should be able to call the method **GetUserInput** and store it in string variable called **name.** Ex: ``` string name = GetUserInput"What is you name") ```
-   2. The loop will end when the user type "yes". use a separate variable to store the input ex: ``` moreGuest = GetUserInput("Do you want to add another name? ")``` Remember due to scope with loop you need to declare the variable outside the loop in the method level.
+   1. Inside your method use a loop to ask the user to enter the name of the guest. You should call the method **GetUserInput** to do that and store it in the name variable that you created
+   2. The loop will end when the user type "yes". use a separate variable to store the input ex: ```Console.WriteLine("Do you want to add another name? ) moreGuest = Console.Readline()```
    3. create a 4 digits random number by calling the **GenerateRandomNumber()**(see description for this method below) and store it in the **raffleNumber** variable that you created.
    4. **Validate your input.** Keep asking for the guest's name if user enter an empty string
    5. Same thing for your random number, validate the data. You can't have the same raffleNumber. You can use a loop to keep calling **GenerateRandomNumber()** method.
