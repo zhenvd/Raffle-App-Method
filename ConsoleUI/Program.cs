@@ -19,9 +19,11 @@ namespace ConsoleUI
         {
             Console.WriteLine("Welcome to the Party!!");
             GetUserInfo();
+            MultiLineAnimation();
             PrintGuestsName();
             PrintWinner();
-            MultiLineAnimation();
+            Console.ReadLine();
+            
         }
 
     //Start writing your code here
@@ -85,8 +87,8 @@ namespace ConsoleUI
                     Console.WriteLine("*****************************************************");
                     Console.WriteLine($"The Winner is: {person.Value} with the #{person.Key}");
                     Console.WriteLine("*****************************************************");
-                    Console.WriteLine("Press enter to exit");
-                    Console.ReadLine(); //so the debug console wouldn't leave me
+                    //Console.WriteLine("Press enter to exit");
+                    //Console.ReadLine(); //so the debug console wouldn't leave me
                 }
             }
         }
@@ -134,7 +136,7 @@ namespace ConsoleUI
             var counter = 0;
             for (int i = 0; i < 30; i++)
             {
-                Console.Clear();
+                //Console.Clear();
 
                 switch (counter % 4)
                 {
