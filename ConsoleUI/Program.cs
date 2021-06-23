@@ -9,20 +9,47 @@ namespace ConsoleUI
 {
     class Program
     {
+        static Dictionary<int, string> guests = new Dictionary<int, string>();
+        private static int min = 1000;
+        private static int max = 9999;
+        private static int raffleNumber;
+        private static Random rdm = new Random();
+
         static void Main(string[] args)
         {
-
-
+            int test = GenerateRandomNumber(min, max);
+            Console.WriteLine(test);
+            Console.ReadLine();
         }
 
-        //Start writing your code here
+    //Start writing your code here
+        
+        
 
+        static string GetUserInput(string message)
+        {
+            Console.WriteLine(message);
+            string input = Console.ReadLine();
+            return input;
+        }
 
+        static int GenerateRandomNumber(int min, int max)
+        {
+            raffleNumber = rdm.Next(min, max);
+            return raffleNumber;
+        }
+        static void GetUserInfo()
+        {
+            string otherGuest;
+            string name = GetUserInput("Please enter your name: ");
+            do
+            {
+                guests.Add(GenerateRandomNumber(min, max), name);
+                otherGuest = GetUserInput("Do you want to add another name?").ToLower();
 
-
-
-
-        static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
+            } while (otherGuest == "yes");
+        }
+    static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {
             var counter = 0;
             for (int i = 0; i < 30; i++)
