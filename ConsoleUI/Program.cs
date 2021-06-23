@@ -17,10 +17,11 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the Party!!");
             GetUserInfo();
             PrintGuestsName();
             PrintWinner();
-            Console.ReadLine();
+            MultiLineAnimation();
         }
 
     //Start writing your code here
@@ -77,7 +78,11 @@ namespace ConsoleUI
             {
                 if(person.Key.Equals(numberWinner))
                 {
+                    Console.WriteLine("*****************************************************");
                     Console.WriteLine($"The Winner is: {person.Value} with the #{person.Key}");
+                    Console.WriteLine("*****************************************************");
+                    Console.WriteLine("Press enter to exit");
+                    Console.ReadLine(); //so the debug console wouldn't leave me
                 }
             }
         }
