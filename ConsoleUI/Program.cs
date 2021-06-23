@@ -42,10 +42,10 @@ namespace ConsoleUI
         {
             raffleNumber = rdm.Next(min, max);
             //repeat validator
-            if(guests.ContainsKey(raffleNumber)) //if the random number is already in the dictionary
+            /*if(guests.ContainsKey(raffleNumber)) //if the random number is already in the dictionary
             {
                 GenerateRandomNumber(min, max); //do it again until a number that hasn't been used is found
-            }
+            }*/
                 return raffleNumber;
 
         }
@@ -87,8 +87,6 @@ namespace ConsoleUI
                     Console.WriteLine("*****************************************************");
                     Console.WriteLine($"The Winner is: {person.Value} with the #{person.Key}");
                     Console.WriteLine("*****************************************************");
-                    //Console.WriteLine("Press enter to exit");
-                    //Console.ReadLine(); //so the debug console wouldn't leave me
                 }
             }
         }
@@ -105,6 +103,14 @@ namespace ConsoleUI
                 string name = GetUserInput("Please enter your name: "); //calls the GetUserInput method
                 if (!string.IsNullOrEmpty(name))
                 {
+/*                    if (guests.ContainsKey(raffleNumber)) //if the random number is already in the dictionary
+                    {
+                        raffleNumber = GenerateRandomNumber(min, max); //do it again until a number that hasn't been used is found
+                    }*/
+                    while(guests.ContainsKey(raffleNumber))
+                    {
+                        raffleNumber = GenerateRandomNumber(min, max); //do it again until a number that hasn't been used is found
+                    }
                     AddGuestsInRaffle(GenerateRandomNumber(min, max), name);
                     //yes no validation
                     do
@@ -136,7 +142,7 @@ namespace ConsoleUI
             var counter = 0;
             for (int i = 0; i < 30; i++)
             {
-                //Console.Clear();
+                Console.Clear();
 
                 switch (counter % 4)
                 {
