@@ -18,6 +18,8 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             GetUserInfo();
+            PrintGuestsName();
+            Console.ReadLine();
         }
 
     //Start writing your code here
@@ -34,18 +36,40 @@ namespace ConsoleUI
         static int GenerateRandomNumber(int min, int max)
         {
             raffleNumber = rdm.Next(min, max);
-            return raffleNumber;
+            //repeat validator
+            if(guests.ContainsKey(raffleNumber)) //if the random number is already in the dictionary
+            {
+                GenerateRandomNumber(min, max); //do it again until a number that hasn't been used is found
+            }
+                return raffleNumber;
+
+        }
+
+        static void AddGuestsInRaffle(int raffleNumber, string name)
+        {
+            //guests.Add(GenerateRandomNumber(min, max), name);
+            guests.Add(raffleNumber, name);
+        }
+
+        static void PrintGuestsName()
+        {
+            foreach(KeyValuePair<int,string> name in guests)
+            {
+                Console.WriteLine($"Name: {name.Value} | Raffle Number: {name.Key}");
+            }
         }
         static void GetUserInfo()
         {
             string otherGuest;
-            string yesNoValidation = "again";
+            
             do
             {
+                string yesNoValidation = "again";
                 string name = GetUserInput("Please enter your name: ");
                 if (!string.IsNullOrEmpty(name))
                 {
-                    guests.Add(GenerateRandomNumber(min, max), name);
+                    AddGuestsInRaffle(GenerateRandomNumber(min, max), name);
+                    //guests.Add(GenerateRandomNumber(min, max), name); //add to dictionary
                     //yes no validation
                     do
                     {
@@ -67,8 +91,6 @@ namespace ConsoleUI
                 {
                     otherGuest = "yes";
                 }
-                
-
             } while (otherGuest == "yes");
         }
     static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
