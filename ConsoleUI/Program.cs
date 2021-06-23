@@ -17,9 +17,7 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {
-            int test = GenerateRandomNumber(min, max);
-            Console.WriteLine(test);
-            Console.ReadLine();
+            GetUserInfo();
         }
 
     //Start writing your code here
@@ -41,11 +39,35 @@ namespace ConsoleUI
         static void GetUserInfo()
         {
             string otherGuest;
-            string name = GetUserInput("Please enter your name: ");
+            string yesNoValidation = "again";
             do
             {
-                guests.Add(GenerateRandomNumber(min, max), name);
-                otherGuest = GetUserInput("Do you want to add another name?").ToLower();
+                string name = GetUserInput("Please enter your name: ");
+                if (!string.IsNullOrEmpty(name))
+                {
+                    guests.Add(GenerateRandomNumber(min, max), name);
+                    //yes no validation
+                    do
+                    {
+                        otherGuest = GetUserInput("Do you want to add another name? Yes or No").ToLower();
+                        //empty string validator
+                        if(string.IsNullOrEmpty(otherGuest))
+                        {
+                            yesNoValidation = "again";
+                        }
+                        else if(otherGuest.Equals("yes") || otherGuest.Equals("no"))
+                        {
+                            yesNoValidation = "no"; //exits out of empty string/yes-no validator loop   
+                        }
+
+                    } while (yesNoValidation == "again");
+                    
+                }
+                else
+                {
+                    otherGuest = "yes";
+                }
+                
 
             } while (otherGuest == "yes");
         }
