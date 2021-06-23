@@ -19,6 +19,7 @@ namespace ConsoleUI
         {
             GetUserInfo();
             PrintGuestsName();
+            PrintWinner();
             Console.ReadLine();
         }
 
@@ -56,6 +57,28 @@ namespace ConsoleUI
             foreach(KeyValuePair<int,string> name in guests)
             {
                 Console.WriteLine($"Name: {name.Value} | Raffle Number: {name.Key}");
+            }
+        }
+
+        static int GetRaffleNumber(Dictionary<int,string> guests)
+        {
+            //List<int> numberPicker = guests.Keys.ToList();
+            int numberIndex = rdm.Next(guests.Count);
+            //int numberSelected = guests.Keys[numberIndex];
+            KeyValuePair<int, string> winningPair = guests.ElementAt(numberIndex);
+            int numberSelected = winningPair.Key;
+            return numberSelected;
+        }
+
+        static void PrintWinner()
+        {
+            int numberWinner = GetRaffleNumber(guests);
+            foreach(KeyValuePair<int,string> person in guests)
+            {
+                if(person.Key.Equals(numberWinner))
+                {
+                    Console.WriteLine($"The Winner is: {person.Value} with the #{person.Key}");
+                }
             }
         }
         static void GetUserInfo()
