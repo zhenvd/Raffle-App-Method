@@ -27,7 +27,7 @@ namespace ConsoleUI
     //Start writing your code here
         
         
-
+        //for all user string input related activities
         static string GetUserInput(string message)
         {
             Console.WriteLine(message);
@@ -35,6 +35,7 @@ namespace ConsoleUI
             return input;
         }
 
+        //generates a random number. also validates to make sure the number hasn't been used before by checking the dictionary
         static int GenerateRandomNumber(int min, int max)
         {
             raffleNumber = rdm.Next(min, max);
@@ -47,12 +48,13 @@ namespace ConsoleUI
 
         }
 
+        //actually adds the name of the guest and their raffle number into the dictionary
         static void AddGuestsInRaffle(int raffleNumber, string name)
         {
-            //guests.Add(GenerateRandomNumber(min, max), name);
-            guests.Add(raffleNumber, name);
+            guests.Add(raffleNumber, name); //adds to dictionary
         }
 
+        //prints all raffle participants and their number
         static void PrintGuestsName()
         {
             foreach(KeyValuePair<int,string> name in guests)
@@ -61,6 +63,7 @@ namespace ConsoleUI
             }
         }
 
+        //picks a random winning raffle number from the existing pool of participants
         static int GetRaffleNumber(Dictionary<int,string> guests)
         {
             //List<int> numberPicker = guests.Keys.ToList();
@@ -71,6 +74,7 @@ namespace ConsoleUI
             return numberSelected;
         }
 
+        //outputs the winner by comparing the number randomly selected from GetRaffleNumber method to the Keys in the dictionary
         static void PrintWinner()
         {
             int numberWinner = GetRaffleNumber(guests);
@@ -86,6 +90,9 @@ namespace ConsoleUI
                 }
             }
         }
+
+        //this is the method that ask for user name input as well as performs most input validations
+        //and also repeats question until appropriate input is entered.
         static void GetUserInfo()
         {
             string otherGuest;
@@ -93,11 +100,10 @@ namespace ConsoleUI
             do
             {
                 string yesNoValidation = "again";
-                string name = GetUserInput("Please enter your name: ");
+                string name = GetUserInput("Please enter your name: "); //calls the GetUserInput method
                 if (!string.IsNullOrEmpty(name))
                 {
                     AddGuestsInRaffle(GenerateRandomNumber(min, max), name);
-                    //guests.Add(GenerateRandomNumber(min, max), name); //add to dictionary
                     //yes no validation
                     do
                     {
@@ -121,6 +127,8 @@ namespace ConsoleUI
                 }
             } while (otherGuest == "yes");
         }
+
+        //a really nice animation that I did not make
     static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {
             var counter = 0;
